@@ -4,7 +4,7 @@ import urllib3
 
 def download_item(url: str) -> bytes | None:
     try:
-        http = urllib3.PoolManager()
+        http = urllib3.PoolManager(headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)'})
         response = http.request('GET', url)
         if response.status != 200:
             return None
